@@ -1,0 +1,61 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             |.text|, CODE, READONLY
+    3 00000000                 EXPORT           bb_enter_prog
+    4 00000000                 ALIGN
+    5 00000000         bb_enter_prog
+                               PROC
+    6 00000000 6801            ldr              r1, [r0]
+    7 00000002 468D            mov              sp, r1
+    8 00000004 6842            ldr              r2, [r0, #4]
+    9 00000006 B404            push             {r2}
+   10 00000008 F04F 0100       mov.w            r1, #0
+   11 0000000C 4608            mov              r0, r1
+   12 0000000E 460A            mov              r2, r1
+   13 00000010 460B            mov              r3, r1
+   14 00000012 460C            mov              r4, r1
+   15 00000014 460D            mov              r5, r1
+   16 00000016 460E            mov              r6, r1
+   17 00000018 460F            mov              r7, r1
+   18 0000001A 4688            mov              r8, r1
+   19 0000001C 4689            mov              r9, r1
+   20 0000001E 468A            mov              r10, r1
+   21 00000020 468B            mov              r11, r1
+   22 00000022 468C            mov              r12, r1
+   23 00000024 EA6F 0E01       mvn              lr, r1
+   24 00000028 BD00            pop              {pc}
+   25 0000002A                 ENDP
+   26 0000002A                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\output
+_loader\bb_entry.d -o.\output_loader\bb_entry.o -IC:\Keil\ARM\RV31\INC -IC:\Kei
+l\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\ST\STM32F10x --predefine="__MICROLIB SETA
+ 1" --list=.\output_loader\bb_entry.lst bb_entry.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 2 in file bb_entry.s
+   Uses
+      None
+Comment: .text unused
+bb_enter_prog 00000000
+
+Symbol: bb_enter_prog
+   Definitions
+      At line 5 in file bb_entry.s
+   Uses
+      At line 3 in file bb_entry.s
+Comment: bb_enter_prog used once
+2 symbols
+333 symbols in table
